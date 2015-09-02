@@ -73,8 +73,10 @@ DB_ARGS = {
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'douban_movie.pipelines.MySQLPipeline': 300,
+    'douban_movie.pipelines.MovieImagesPipeline': 1
 }
 
+IMAGES_STORE = '/data/douban/images'
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 # NOTE: AutoThrottle will honour the standard settings for concurrency and delay

@@ -15,6 +15,7 @@ class DoubanMovieItem(Item):
     # name = scrapy.Field()
     rank = Field()
     picture = Field()
+    picture_path = Field()
     title = Field()
     info = Field()
     star = Field()

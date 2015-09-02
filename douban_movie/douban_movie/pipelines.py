@@ -4,7 +4,9 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
+from scrapy.http import Request
 from twisted.enterprise import adbapi
+from scrapy.pipelines.images import ImagesPipeline
 
 
 class MySQLPipeline(object):
@@ -29,3 +31,11 @@ class MySQLPipeline(object):
             (item['rank'], item['picture'], item['title'], item['info'], item['star'], item.get('quote', ''),
              item['people'], item['crawl_time']))
         return item
+
+
+class MovieImagesPipeline(ImagesPipeline):
+
+    DEFAULT_IMAGES_RESULT_FIELD = 'picture_path'
+
+    def get_media_requests(self, item, info):
+        return Request(item['picture'])
