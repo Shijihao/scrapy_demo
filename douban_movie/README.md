@@ -121,5 +121,6 @@ $ ls /tmp/douban/images/full/
 ```
 
 ### 封面效果图
+
 ![效果图](http://7xkp7e.com1.z0.glb.clouddn.com/crazygit/douban_movies.png "效果图")
 
