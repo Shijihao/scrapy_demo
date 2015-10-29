@@ -27,14 +27,14 @@ class MySQLPipeline(object):
 
     def process_item(self, item, spider):
         self.dbpool.runOperation(
-            'INSERT INTO movies.top250(rank, picture, title, info, star, quote, people, crawl_time) VALUES (%s,%s,%s,%s,%s,%s,%s, %s)',
-            (item['rank'], item['picture'], item['title'], item['info'], item['star'], item.get('quote', ''),
+            'INSERT INTO top250(rank, picture, title, info, star, quote, people, crawl_time) VALUES (%s,%s,%s,%s,%s,%s,%s, %s)',
+            (item['rank'], item['picture'], item['title'], item['info'], item['star'],
+             item.get('quote', ''),
              item['people'], item['crawl_time']))
         return item
 
 
 class MovieImagesPipeline(ImagesPipeline):
-
     DEFAULT_IMAGES_RESULT_FIELD = 'picture_path'
 
     def get_media_requests(self, item, info):

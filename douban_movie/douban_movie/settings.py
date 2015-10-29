@@ -15,12 +15,13 @@ SPIDER_MODULES = ['douban_movie.spiders']
 NEWSPIDER_MODULE = 'douban_movie.spiders'
 
 DB_API_NAME = 'MySQLdb'
+
 DB_ARGS = {
     'host': '127.0.0.1',
     'port': 3306,
     'user': 'root',
     'passwd': 'linliang',
-    'db': 'movies',
+    'db': 'douban',
     'charset': 'utf8',
     'use_unicode': True,
 }
@@ -73,10 +74,10 @@ DB_ARGS = {
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'douban_movie.pipelines.MySQLPipeline': 300,
-    'douban_movie.pipelines.MovieImagesPipeline': 1
+    'douban_movie.pipelines.MovieImagesPipeline': 100
 }
 
-IMAGES_STORE = '/data/douban/images'
+IMAGES_STORE = '/tmp/douban/images'
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 # NOTE: AutoThrottle will honour the standard settings for concurrency and delay
